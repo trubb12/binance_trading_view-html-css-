@@ -1,0 +1,141 @@
+[33mcommit b006b591774e37896204ba4c02b558b441c015dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: SmartDev <dev10dragon10@gmail.com>
+Date:   Mon Jan 23 15:48:51 2023 +0900
+
+    first commit
+
+[1mdiff --git a/index.html b/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7fda31c[m
+[1m--- /dev/null[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,121 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="en">[m
+[32m+[m[32m  <head>[m
+[32m+[m[32m    <title></title>[m
+[32m+[m[32m    <meta charset="UTF-8" />[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1" />[m
+[32m+[m[32m    <link href="mystyle.css" rel="stylesheet" />[m
+[32m+[m[32m  </head>[m
+[32m+[m[32m  <body>[m
+[32m+[m[32m    <div class="app">[m
+[32m+[m[32m      <div class="image-cover">[m
+[32m+[m[32m      <div class="image"></div>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <!-- Navbar -->[m
+[32m+[m[32m      <div class="navbar">[m
+[32m+[m[32m        <a id="nav-1" onclick="nav_func(1)" class="nav-item active"[m
+[32m+[m[32m          >Create Trade</a[m
+[32m+[m[32m        >[m
+[32m+[m[32m        <a id="nav-2" onclick="nav_func(2)" class="nav-item">Trade Log</a>[m
+[32m+[m[32m        <a id="nav-3" onclick="nav_func(3)" class="nav-item">Active trade</a>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <!-- Create Trade -->[m
+[32m+[m[32m      <div class="create-trade">[m
+[32m+[m[32m        <div class="choose-ticker">[m
+[32m+[m[32m          <h1>Choose a ticker</h1>[m
+[32m+[m[32m          <label>Pair  </label>[m
+[32m+[m[32m          <select class="select-box" name="select-pair">[m
+[32m+[m[32m            <option value="BTCUSDT">BTCUSDT</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m[32m          <button class="next-btn" onclick="toNext(1)">Next >></button>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div class="choose-timeframe hide">[m
+[32m+[m[32m          <h1>Choose a timeframe</h1>[m
+[32m+[m[32m          <label>Timeframe  </label>[m
+[32m+[m[32m          <select class="select-box" name="select-timeframe">[m
+[32m+[m[32m            <option value="1m">1m</option>[m
+[32m+[m[32m            <option value="5m">5m</option>[m
+[32m+[m[32m            <option value="10m">10m</option>[m
+[32m+[m[32m            <option value="15m">15m</option>[m
+[32m+[m[32m            <option value="30m">30m</option>[m
+[32m+[m[32m            <option value="1h">1h</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m[32m          <button class="next-btn" onclick="toNext(2)">Next >></button>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div class="choose-indicator hide">[m
+[32m+[m[32m          <h1>Choose an Indicator & Length</h1>[m
+[32m+[m[32m          <label>Indicator  </label>[m
+[32m+[m[32m          <select class="select-box">[m
+[32m+[m[32m            <option>SMA</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m[32m          <input type="text" class="select-box" name="indicator-length" placeholder="Enter indicator Length" />[m
+[32m+[m[32m          <label>Parameters  </label>[m
+[32m+[m[32m          <select class="select-box" name="indicator-params">[m
+[32m+[m[32m            <option value="open" >Open</option>[m
+[32m+[m[32m            <option value="low" >Low</option>[m
+[32m+[m[32m            <option value="high" >High</option>[m
+[32m+[m[32m            <option value="close" >Close</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m[32m          <button class="next-btn" onclick="toNext(3)">Next >></button>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div class="choose-buy-conditions hide">[m
+[32m+[m[32m          <h1>Choose buy conditions</h1>[m
+[32m+[m[32m          <label>Price goes</label>[m
+[32m+[m[32m          <select class="select-box" name="buy-condition-goes">[m
+[32m+[m[32m            <option value="above">Above SMA</option>[m
+[32m+[m[32m            <option value="below">Below SMA</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m[32m          <label>Buy @ Price  </label>[m
+[32m+[m[32m          <select class="select-box" name="buy-condition-price">[m
+[32m+[m[32m            <option>Open</option>[m
+[32m+[m[32m            <option>High</option>[m
+[32m+[m[32m            <option>Low</option>[m
+[32m+[m[32m            <option>Close</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m
+[32m+[m[32m          <button class="next-btn" onclick="toNext(4)">Next >></button>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div class="choose-sell-conditions hide">[m
+[32m+[m[32m          <h1>Choose sell conditions</h1>[m
+[32m+[m[32m          <label>Sell if, Price goes</label>[m
+[32m+[m[32m          <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            name="sell-price"[m
+[32m+[m[32m            class="select-box"[m
+[32m+[m[32m            placeholder="Below Last Candle Low"[m
+[32m+[m[32m          />[m
+[32m+[m[32m          <button class="next-btn" onclick="toNext(5)">Next >></button>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div class="choose-quantity hide">[m
+[32m+[m[32m          <h1>Choose quantity</h1>[m
+[32m+[m[32m          <select class="select-box" name="quantity-type">[m
+[32m+[m[32m            <option value="amount">Amount</option>[m
+[32m+[m[32m            <option value="volume">Volume</option>[m
+[32m+[m[32m          </select>[m
+[32m+[m[32m          <input[m
+[32m+[m[32m            type="text"[m
+[32m+[m[32m            name="quantity-percentage"[m
+[32m+[m[32m            class="select-box"[m
+[32m+[m[32m            placeholder="Percentage %"[m
+[32m+[m[32m          />[m
+[32m+[m[32m          <button class="next-btn" onclick="toNext(6)">Next >></button>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div class="choose-trade hide">[m
+[32m+[m[32m          <div class="trading-buttons">[m
+[32m+[m[32m            <h1>Choose Trade</h1>[m
+[32m+[m[32m            <button class="next-btn" name="trading" onclick="created()">Place a trade</button>[m
+[32m+[m[32m            <button class="next-btn" onclick="toNext(0)">Cancel</button>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m          <div class="trading-view">[m
+[32m+[m[32m            <span class="loader hide"></span>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m      <div class="trade-log"></div>[m
+[32m+[m[32m      <div class="active-trade"></div>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m  </body>[m
+[32m+[m[32m  <script src="jquery.min.js"></script>[m
+[32m+[m[32m  <script src="myscript.js"></script>[m
+[32m+[m[32m  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/jquery.min.js b/jquery.min.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9b17319[m
+[1m--- /dev/null[m
+[1m+++ b/jquery.min.js[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32m/*! jQuery v3.6.1 | (c) OpenJS Foundation and other contributors | jquery.org/license */[m
+[32m+[m[32m!function(e,t){"use strict";"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error("jQuery requires a window with a document");return t(e)}:t(e)}("undefined"!=typeof window?window:this,function(C,e){"use strict";var t=[],r=Object.getPrototypeOf,s=t.slice,g=t.flat?function(e){return t.flat.call(e)}:function(e){return t.concat.apply([],e)},u=t.push,i=t.indexOf,n={},o=n.toString,y=n.hasOwnProperty,a=y.toString,l=a.call(Object),v={},m=function(e){return"function"==typeof e&&"number"!=typeof e.nodeType&&"function"!=typeof e.item},x=function(e){return null!=e&&e===e.window},E=C.document,c={type:!0,src:!0,nonce:!0,noModule:!0};function b(e,t,n){var r,i,o=(n=n||E).createElement("script");if(o.text=e,t)for(r in c)(i=t[r]||t.getAttribute&&t.getAttribute(r))&&o.setAttribute(r,i);n.head

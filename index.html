@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="mystyle.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="image-cover">
+      <div class="image"></div>
+      </div>
+      <!-- Navbar -->
+      <div class="navbar">
+        <a id="nav-1" onclick="nav_func(1)" class="nav-item active"
+          >Create Trade</a
+        >
+        <a id="nav-2" onclick="nav_func(2)" class="nav-item">Trade Log</a>
+        <a id="nav-3" onclick="nav_func(3)" class="nav-item">Active trade</a>
+      </div>
+      <!-- Create Trade -->
+      <div class="create-trade">
+        <div class="choose-ticker">
+          <h1>Choose a ticker</h1>
+          <label>Pair  </label>
+          <select class="select-box" name="select-pair">
+            <option value="BTCUSDT">BTCUSDT</option>
+          </select>
+          <button class="next-btn" onclick="toNext(1)">Next >></button>
+        </div>
+        <div class="choose-timeframe hide">
+          <h1>Choose a timeframe</h1>
+          <label>Timeframe  </label>
+          <select class="select-box" name="select-timeframe">
+            <option value="1m">1m</option>
+            <option value="5m">5m</option>
+            <option value="10m">10m</option>
+            <option value="15m">15m</option>
+            <option value="30m">30m</option>
+            <option value="1h">1h</option>
+          </select>
+          <button class="next-btn" onclick="toNext(2)">Next >></button>
+        </div>
+        <div class="choose-indicator hide">
+          <h1>Choose an Indicator & Length</h1>
+          <label>Indicator  </label>
+          <select class="select-box">
+            <option>SMA</option>
+          </select>
+          <input type="text" class="select-box" name="indicator-length" placeholder="Enter indicator Length" />
+          <label>Parameters  </label>
+          <select class="select-box" name="indicator-params">
+            <option value="open" >Open</option>
+            <option value="low" >Low</option>
+            <option value="high" >High</option>
+            <option value="close" >Close</option>
+          </select>
+          <button class="next-btn" onclick="toNext(3)">Next >></button>
+        </div>
+        <div class="choose-buy-conditions hide">
+          <h1>Choose buy conditions</h1>
+          <label>Price goes</label>
+          <select class="select-box" name="buy-condition-goes">
+            <option value="above">Above SMA</option>
+            <option value="below">Below SMA</option>
+          </select>
+          <label>Buy @ Price  </label>
+          <select class="select-box" name="buy-condition-price">
+            <option>Open</option>
+            <option>High</option>
+            <option>Low</option>
+            <option>Close</option>
+          </select>
+
+          <button class="next-btn" onclick="toNext(4)">Next >></button>
+        </div>
+        <div class="choose-sell-conditions hide">
+          <h1>Choose sell conditions</h1>
+          <label>Sell if, Price goes</label>
+          <input
+            type="text"
+            name="sell-price"
+            class="select-box"
+            placeholder="Below Last Candle Low"
+          />
+          <button class="next-btn" onclick="toNext(5)">Next >></button>
+        </div>
+        <div class="choose-quantity hide">
+          <h1>Choose quantity</h1>
+          <select class="select-box" name="quantity-type">
+            <option value="amount">Amount</option>
+            <option value="volume">Volume</option>
+          </select>
+          <input
+            type="text"
+            name="quantity-percentage"
+            class="select-box"
+            placeholder="Percentage %"
+          />
+          <button class="next-btn" onclick="toNext(6)">Next >></button>
+        </div>
+        <div class="choose-trade hide">
+          <div class="trading-buttons">
+            <h1>Choose Trade</h1>
+            <button class="next-btn" name="trading" onclick="created()">Place a trade</button>
+            <button class="next-btn" onclick="toNext(0)">Cancel</button>
+          </div>
+          <div class="trading-view">
+            <span class="loader hide"></span>
+          </div>
+        </div>
+      </div>
+      <div class="trade-log"></div>
+      <div class="active-trade"></div>
+    </div>
+  </body>
+  <script src="jquery.min.js"></script>
+  <script src="myscript.js"></script>
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</html>
